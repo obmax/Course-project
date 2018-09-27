@@ -1,0 +1,20 @@
+en:
+  activerecord:
+    models:
+      manual: 'Manuals'
+      step: 'Steps'
+    attributes:
+      manual:
+        title: 'Title'
+        summary: 'Summary'
+        body: 'Body'
+        all_tags: 'Tags'
+        category_id: 'Category'
+      step:
+        title: Title
+        body: Body
+      category:
+        name: 'Name'
+    errors:
+      messages:
+        blank: "can't be blank"

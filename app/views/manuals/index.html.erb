@@ -1,0 +1,4 @@
+<h1><%= t('.title') %></h1>
+
+<%= render @manuals %>
+<%= will_paginate @manuals,  renderer: WillPaginate::ActionView::BootstrapLinkRenderer, previous_label: '<-', next_label: '->' %>

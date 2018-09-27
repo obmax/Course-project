@@ -1,0 +1,7 @@
+
+	<%= form_for(@upload, html: { multipart: false, class: "dropzone", id: "my-dropzone"}) do |f|  %>
+  <div class="fallback">
+    <%= f.file_field :image %><br>
+    <%= f.submit "Upload" %>
+  </div>
+<% end %>

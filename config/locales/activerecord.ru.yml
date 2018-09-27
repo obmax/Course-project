@@ -1,0 +1,16 @@
+ru:
+  activerecord:
+    models:
+      manual: 'Инструкции'
+    attributes:
+      manual:
+        title: 'Название'
+        summary: 'Краткое описание'
+        body: 'Описание'
+        all_tags: 'Тэги'
+        category_id: 'Категория'
+      category:
+        name: 'Название'
+    errors:
+      messages:
+        blank: 'не может быть пустым'

@@ -1,0 +1,6 @@
+<%= form_for :term, url: search_path, method: :get, class: 'form-inline my-2 my-lg-0' do |form| %>
+	<div class="in-row">
+		<%= text_field_tag :term, params[:term], class: 'form-control mr-sm-2', id: 'input-form', placeholder: t('.placeholder')%>
+	    <%= submit_tag t('.search'), name: nil, class: 'btn btn-outline-light my-2 my-sm-0' %>
+	</div>
+<% end %>

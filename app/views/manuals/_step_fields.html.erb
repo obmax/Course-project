@@ -1,0 +1,28 @@
+<div class="nested-fields">
+<div class="step">
+	<div class="step-title">
+		<div class="form-group">
+			<%= f.text_field :title, class: 'form-control', placeholder: t('.title') %>
+		</div>
+	</div>
+	<div class="step-body">
+		<div class="step-image">
+			<div class="form-group">
+		       	<%= f.file_field :image %>
+			</div>
+		</div>
+		<div class="step-text">
+			<div class="form-group">
+		       	<%= f.text_area :body, class: 'form-control',placeholder: t('.body') %>
+			</div>
+		</div>
+			<%= f.hidden_field :user_id, :value => current_user.id %>
+  			<%= link_to_remove_association t('.remove_step'), f, class: 'btn btn-outline-danger'%>
+	</div>
+</div>	
+</div>
+
+
+
+
+

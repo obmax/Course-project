@@ -1,0 +1,76 @@
+en:
+  admin:
+    users:
+      index:
+        status: Status
+        blocked: Blocked
+        active: Active
+        delete: Delete
+        unban: Unban
+        ban: Ban
+        all_users: All users
+    categories:
+      index:
+        title: Categories
+        name: 'Categories'
+        new_category: New category
+        delete: Delete
+        edit: Edit
+      new:
+        title: Categories
+        name: 'New category'
+      edit:
+        title: Categories
+        name: 'Edit category'
+      form:
+        submit: '%{action}'
+  common:
+    errors: 'You have some errors'
+    back: 'Back'
+    create: 'Create'
+    edit: 'Change'
+  manuals:
+    index:
+      title: 'Manuals'
+    new:
+      title: 'New manual'
+    edit:
+      title: 'Edit manual'
+    show:
+      edit: Edit
+      delete: Delete
+    form:
+      save: '%{action}'
+      to_steps: '%{action} Steps'
+      add_steps: Add steps
+      steps_adding: Steps adding
+    step_fields:
+      remove_step: Remove step
+      title: Title
+      body: Body
+    manual:
+      edit: 'Edit'
+      delete: 'Delete'
+  search:
+    form:
+      search: Search
+      placeholder: Search for manuals
+    search:
+      search_results: Result for search
+  users:
+    show:
+      users_man: Your manuals
+      new_man: New manual
+      title: Title
+      edit: Edit
+      delete: Delete
+  tags: Tags
+  category: Categories
+  man: Manuals
+  new_man: New manual
+  my_man: My manuals
+  all_users: All users
+  categ: Categories
+  sign_in: Sign in
+  sign_out: Sign out
+  registration: Registration

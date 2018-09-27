@@ -1,0 +1,43 @@
+<article class="manual">
+
+	<section class="manual-head">
+		<%= link_to manual_path(manual) do%>
+			<%= image_tag manual.image.url(:thumb), class: 'img-thumbnail thumb'  if manual.image.exists?%>
+		<% end %>
+	</section>
+
+	<section class="manual-summary clearfix">
+		<h2><%= link_to manual.title, manual_path(manual), class: 'title', id:'title' %></h2>
+		<small>
+			<time><%= l manual.created_at.to_date, format: :long %></time>
+			<%= link_to t('.edit'), edit_manual_path(manual) if can? :update, manual%>
+			<%= link_to t('.delete'), manual_path(manual), method: :delete, data: {confirm: 'Are you shure?'} if can? :destroy, manual%>
+		</small>
+		
+		<div class="manual-summary">
+			<%= manual.summary %>
+		</div> 
+				<div>
+					<% if manual.category.present? %>
+						<%= link_to manual.category.name, manual.category, class: "badge badge-info" %>
+					<% end %>
+				</div> 
+				<div class="manual-tags">
+					<%= raw  manual.tags.map(&:name).map { |t|  link_to t, tag_path(t), class: "badge badge-primary"}.join(' ')  %>
+				</div>
+				
+
+	</section>
+
+	<section>
+		<%# if manual.category.present? %>
+			<%#= link_to manual.category.name, manual.category, class: "badge badge-info" %>
+		<%# end %>
+	</section>
+
+	<section class="footer-summary">
+		<%#= raw  manual.tags.map(&:name).map { |t|  link_to t, tag_path(t), class: "badge badge-primary"}.join(' ')  %>
+	</section>
+
+</article>
+	

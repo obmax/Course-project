@@ -1,0 +1,61 @@
+<div class="row">
+	<div class="col md-2">
+		<div class="sticky">
+			<h2>Chapter</h2>
+			<% @manual.steps.each_with_index do |s, i| %>
+				<%= "#{i+1})"  %>
+				<a href="?page=<%= i+1 %>" id="manual-chapter"><%= s.title %></a>
+				<br>
+			<% end %>
+		</div>
+	</div>
+	<div class="col md-10">
+		<article class="manual">
+			<section class="manual-head">
+				<h1><%= @manual.title%></h1>
+				<small>
+					<time><%= l @manual.created_at.to_date, format: :long %></time>
+					<%= link_to t('.edit'), edit_manual_path(@manual) if can? :update, @manual %>
+					<%= link_to t('.delete'), manual_path(@manual), method: :delete, data: {confirm: 'Are you shure?'} if can? :desroy, @manual %>
+				</small>
+			</section>
+			<section>
+				<%= category_show(@manual) %>
+			</section>
+			<section class="manual-body">
+				<%= image_tag @manual.image.url(:large), class: 'img-show' if @manual.image.exists?%>
+				<%= @manual.body %>
+			</section><br>
+		</article>
+
+		<%= render @steps %>
+		<%= will_paginate @steps,  renderer: WillPaginate::ActionView::BootstrapLinkRenderer, previous_label: 'Previous step', next_label: 'Next step', id: 'switch_steps'  %>
+
+		<%= link_to like_manual_path(@manual), method: :put, remote: :true, class: 'btn btn-default' do %>
+			<span><i class="material-icons">favorite_border</i>
+			</span>
+		<% end %>
+			<span class="likes-count"><%= @manual.get_upvotes.size %></span>
+			<span><i class="btn btn-default material-icons" id="comments-link">chat_bubble_outline</i></span>
+
+		<section id='comments-section'>
+			<ol id="comments">
+			<%= render @comments %>
+			</ol>
+			<%= form_for [@manual, @manual.comments.new], remote: true do |f| %>
+				<fieldset>
+					<ol>
+						<p><%= f.text_area :body, rows: 2, cols: 60, placeholder: "Write a comment..." %></p>
+						<p>
+							<%= f.submit 'Post Comment', class: 'btn btn-outline-primary' %>
+						</p>
+					</ol>
+				</fieldset>		
+			<% end %>
+		</section>
+		
+			
+	</div>
+</div>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

@@ -1,0 +1,23 @@
+         <h1><%= t('.all_users') %></h1>
+         <table class="table table-condensed">
+        <thead > 
+          <tr>
+            <th>Login</th>
+            <th>Email</th>
+            <th><%= t('.status') %></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+      <% @users.each do |user| %>
+        <tbody>
+         <tr>
+            <td><%=user.username %></td>
+            <td><%=user.email %></td>
+            <td><%=user.blocked ? t('.blocked') : t('.active')%></td>
+            <td><%= link_to t('.delete'),admin_user_url(user.id),method: :delete, class: 'btn btn-outline-danger btn-sm' %></td>
+            <td><%= link_to banned(user), admin_user_url(user.id),method: :put,data: {confirm: "Are you shure?"}, class: "btn btn-outline-#{ban_class(user)} btn-sm" %></td>
+          </tr>
+        </tbody>
+      <% end %>
+      </table>

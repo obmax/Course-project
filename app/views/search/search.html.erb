@@ -1,0 +1,23 @@
+<h1><%= t('.search_results') %></h1>
+ 
+<% if @manuals || @steps %>
+  <ul class="search_results">
+    <% @manuals.each do |manual| %>
+      <li>
+        <h3>
+          <%= link_to manual.try(:highlight).try(:title) ?
+              manual.highlight.title[0].html_safe : manual.title,
+              controller: "manuals", action: "show", id: manual._id %>
+        </h3>
+        <% if manual.try(:highlight).try(:body, :summary) %>
+          <% manual.highlight.text.each do |snippet| %>
+            <p><%= snippet.html_safe %>...</p>
+          <% end %>
+        <% end %>
+    </li>
+  <%end %>
+  </ul>
+<% else %>
+  <p>Your search did not match any documents.</p>
+<% end %>
+

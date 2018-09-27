@@ -1,0 +1,21 @@
+<div class="step">
+	<div class="step-title">
+		<%= step.title %>
+	</div>
+	<div class="step-body">
+		<div class="step-image">
+			<%= image_tag step.image.url(:large), class: 'img-step' if step.image.exists?%>
+		</div>
+		<div class="step-text">
+			<%= markdown step.body %>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
