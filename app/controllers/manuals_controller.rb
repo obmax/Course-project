@@ -14,10 +14,6 @@ class ManualsController < ApplicationController
 		@comments = @manual.comments
 	end
 
-def meth(str1, str2)
-  str1.chars.sort == str2.chars.sort
-end
-
 	def create
 		@manual = Manual.new(manual_params)
 		@manual.user_id = current_user.id
